@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Maven: net.sourceforge.pmd:pmd-apex-jorje:lib:6.6.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/sourceforge/pmd/pmd-apex-jorje/6.6.0/pmd-apex-jorje-6.6.0-lib.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/pmd-apex-jorje/pmd-apex-jorje-6.6.0-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/net/sourceforge/pmd/pmd-apex-jorje/6.6.0/pmd-apex-jorje-6.6.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/pmd-apex-jorje/pmd-apex-jorje-6.6.0-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/net/sourceforge/pmd/pmd-apex-jorje/6.6.0/pmd-apex-jorje-6.6.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

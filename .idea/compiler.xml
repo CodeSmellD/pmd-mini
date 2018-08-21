@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="pmd-core" />
+        <module name="pmd-java" />
+        <module name="pmd-java8" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="pmd" target="1.7" />
+      <module name="pmd-apex" target="1.8" />
+      <module name="pmd-apex-jorje" target="1.8" />
+      <module name="pmd-core" target="1.7" />
+      <module name="pmd-cpp" target="1.7" />
+      <module name="pmd-cs" target="1.7" />
+      <module name="pmd-dist" target="1.7" />
+      <module name="pmd-doc" target="1.8" />
+      <module name="pmd-fortran" target="1.7" />
+      <module name="pmd-go" target="1.7" />
+      <module name="pmd-groovy" target="1.7" />
+      <module name="pmd-java" target="1.7" />
+      <module name="pmd-java8" target="1.8" />
+      <module name="pmd-javascript" target="1.7" />
+      <module name="pmd-jsp" target="1.7" />
+      <module name="pmd-matlab" target="1.7" />
+      <module name="pmd-objectivec" target="1.7" />
+      <module name="pmd-perl" target="1.7" />
+      <module name="pmd-php" target="1.7" />
+      <module name="pmd-plsql" target="1.7" />
+      <module name="pmd-python" target="1.7" />
+      <module name="pmd-ruby" target="1.7" />
+      <module name="pmd-scala" target="1.7" />
+      <module name="pmd-swift" target="1.7" />
+      <module name="pmd-test" target="1.7" />
+      <module name="pmd-ui" target="8" />
+      <module name="pmd-visualforce" target="1.7" />
+      <module name="pmd-vm" target="1.7" />
+      <module name="pmd-xml" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

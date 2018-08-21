@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-apex" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-apex-jorje" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-dist" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-doc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-fortran" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-go" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-groovy" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-java8" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-javascript" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-matlab" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-objectivec" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-perl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-plsql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-python" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-ruby" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-scala" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-swift" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-test" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-ui" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-visualforce" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-vm" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmd-xml" charset="UTF-8" />
+  </component>
+</project>

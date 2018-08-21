@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/pmd.iml" filepath="$PROJECT_DIR$/pmd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmd-core/pmd-core.iml" filepath="$PROJECT_DIR$/pmd-core/pmd-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmd-java/pmd-java.iml" filepath="$PROJECT_DIR$/pmd-java/pmd-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmd-java8/pmd-java8.iml" filepath="$PROJECT_DIR$/pmd-java8/pmd-java8.iml" />
+    </modules>
+  </component>
+</project>
