@@ -1,27 +1,12 @@
-# PMD
+A Fork of the famous PMD, functionality reduced to focus on only Java smells.    
+Tested thru IDE Execution.       
 
-[![Join the chat at https://gitter.im/pmd/pmd](https://badges.gitter.im/pmd/pmd.svg)](https://gitter.im/pmd/pmd?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build Status](https://travis-ci.org/pmd/pmd.svg?branch=master)](https://travis-ci.org/pmd/pmd)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.sourceforge.pmd/pmd/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.sourceforge.pmd/pmd)
-[![Coverage Status](https://coveralls.io/repos/github/pmd/pmd/badge.svg)](https://coveralls.io/github/pmd/pmd)
+# Usage
+1- Pull and import as Maven project to IDEA.    
+2- Execute mvn clean install at project top level.    
+3- Execute via PMD Main Class using params like: "-d /path/to/project  -R java-basic -f text".       
+Detailed commandline tool params could be found in PMD Official Documentation.
+If facing NullPointerException related to Language.class, try to specify module classPath like the following screenshot.        
 
-## About
 
-**PMD** is a source code analyzer. It finds common programming flaws like unused variables, empty catch blocks,
-unnecessary object creation, and so forth. It supports Java, JavaScript, Salesforce.com Apex and Visualforce, PLSQL, Apache Velocity,
-XML, XSL.
-
-Additionally it includes **CPD**, the copy-paste-detector. CPD finds duplicated code in
-Java, C, C++, C#, Groovy, PHP, Ruby, Fortran, JavaScript, PLSQL, Apache Velocity, Scala, Objective C,
-Salesforce.com Apex, Perl, Swift, Matlab, Python.
-
-## Source and Documentation
-
-Our latest source of PMD can be found on [GitHub](https://github.com/pmd/pmd). Fork us!
-
-*   [How to build PMD](BUILDING.md)
-*   [How to contribute to PMD](CONTRIBUTING.md)
-
-## News and Website
-
-More information can be found on our [Website](https://pmd.github.io) and on [SourceForge](https://sourceforge.net/projects/pmd/).
+![config](https://wx2.sinaimg.cn/mw690/005yrqtrly1fuhdoe0kl0j31kw1d146v.jpg)
