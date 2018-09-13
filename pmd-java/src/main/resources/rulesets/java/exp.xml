@@ -9,8 +9,8 @@ The Basic ruleset contains a collection of good practices which should be follow
   </description>
 
     <!-- Rules, that have been moved into a category -->
-  <!--<rule ref="category/java/design.xml/DataClass"  />-->
-  <!--<rule ref="category/java/design.xml/GodClass"  />-->
+  <rule ref="category/java/design.xml/DataClass"  />
+  <rule ref="category/java/design.xml/GodClass"  />
   <rule ref="category/java/design.xml/FeatureEnvyJDeodorant"  />
 
 </ruleset>

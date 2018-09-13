@@ -23,7 +23,11 @@ public abstract class AbstractRuleViolationFactory implements RuleViolationFacto
             // Escape PMD specific variable message format, specifically the {
             // in the ${, so MessageFormat doesn't bitch.
             final String escapedMessage = StringUtils.replace(message, "${", "$'{'");
-            return MessageFormat.format(escapedMessage, args != null ? args : NO_ARGS);
+            try {
+                return MessageFormat.format(escapedMessage, args != null ? args : NO_ARGS);
+            }catch (Exception e){
+                return escapedMessage;
+            }
         } else {
             return message;
         }

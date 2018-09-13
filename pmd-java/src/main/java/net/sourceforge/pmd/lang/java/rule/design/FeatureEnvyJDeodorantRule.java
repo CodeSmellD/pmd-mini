@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.google.gson.Gson;
+
+import net.sourceforge.pmd.lang.java.ast.ASTAnyTypeBodyDeclaration;
 import net.sourceforge.pmd.lang.java.ast.ASTAnyTypeDeclaration;
 import net.sourceforge.pmd.lang.java.ast.ASTClassOrInterfaceDeclaration;
 import net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit;
@@ -29,42 +32,55 @@ public class FeatureEnvyJDeodorantRule extends AbstractJavaRule {
 
     @Override
     public Object visit(ASTClassOrInterfaceDeclaration node, Object data) {
-        HashMap<String,Integer> envyTarget = findEnvyTarget(computeFor(node));
+        HashMap<String,Double> envyTarget = findEnvyTarget(computeFor(node));
         super.visit(node, data);
-        StringBuilder message = new StringBuilder();
         if (envyTarget!=null && envyTarget.size()>0) {
-            Integer intensity = 0;
-            List<String> arr = new ArrayList<>();
-            for(Map.Entry<String,Integer> e: envyTarget.entrySet()){
-                intensity = e.getValue();
-                arr.add(e.getKey());
-                message.append(e.getKey()).append(" ");
-            }
-            message.append("| ").append(intensity);
-            addViolationWithMessage(data, node, message.toString());
+            Gson gson = new Gson();
+            String json = gson.toJson(envyTarget);
+//            Double intensity = 0.0;
+//            List<String> arr = new ArrayList<>();
+//            for(Map.Entry<String,Double> e: envyTarget.entrySet()){
+//                intensity = e.getValue();
+//                arr.add(e.getKey());
+//                message.append(e.getKey()).append(" ");
+//            }
+//            message.append("| ").append(intensity);
+            addViolationWithMessage(data, node, json);
         }
         return data;
     }
 
-    public Map<String, Map<String,Integer>>  computeFor(ASTAnyTypeDeclaration node) {
+    private int getMethodDeclarationSize(ASTAnyTypeDeclaration node){
+        int res = 0;
+        for(ASTAnyTypeBodyDeclaration bd : node.getDeclarations()){
+            if(bd.getKind().equals(ASTAnyTypeBodyDeclaration.DeclarationKind.METHOD) ||
+                    bd.getKind().equals(ASTAnyTypeBodyDeclaration.DeclarationKind.CONSTRUCTOR)){
+                res++;
+            }
+        }
+        return res;
+    }
+    public Map<String, Map<String,Double>>  computeFor(ASTAnyTypeDeclaration node) {
         Map<String, Set<String>> atlmByMethod = new AtlmAttributeAccessCollector(node).start();
         Map<String, Map<String,Set<String>>> atfmByMethod = new AtfmAttributeAccessCollector(node).start();
         if(atfmByMethod.size() == 0) return null;
-        Map<String, Map<String,Integer>> result = new HashMap<>();
+        Map<String, Map<String,Double>> result = new HashMap<>();
         for(Map.Entry<String,Map<String,Set<String>>> e : atfmByMethod.entrySet()){
             Set<String> atlmSet = atlmByMethod.get(e.getKey());
             int atlm = atlmSet == null ? 0 : atlmSet.size();
             Map<String,Set<String>> atfm = e.getValue();
             if(atfm == null || atfm.size()<=0) continue;
-            atfm = findTopAtfm(atfm);
+//            atfm = findTopAtfm(atfm);
             boolean shouldContinue = true;
-            Map<String,Integer> res = new HashMap<>();
+            Map<String,Double> res = new HashMap<>();
             for(Map.Entry<String,Set<String>> eInner:atfm.entrySet()){
                 int atfmN = eInner.getValue().size();
-                if(atfmN - atlm <= 0){
+                int nMethods = getMethodDeclarationSize(node);
+                double intensity = nMethods == 0 ? 0 : ((atfmN - atlm) / (nMethods+0.0));
+                if(intensity <= 0){
                     shouldContinue = false;break;
                 }
-                res.put(eInner.getKey(),atfmN - atlm);
+                res.put(eInner.getKey(),intensity);
             }
             if(!shouldContinue) continue;
             if(res.size()>0) {
@@ -88,12 +104,12 @@ public class FeatureEnvyJDeodorantRule extends AbstractJavaRule {
         return res;
     }
 
-    private HashMap<String,Integer> findEnvyTarget(Map<String, Map<String,Integer>> res){
+    private HashMap<String,Double> findEnvyTarget(Map<String, Map<String,Double>> res){
         if(res == null || res.size() == 0) return null;
-        HashMap<String,Integer> candidates = new HashMap<>();
-        for(Map.Entry<String, Map<String,Integer>> firstLevel: res.entrySet()){
+        HashMap<String,Double> candidates = new HashMap<>();
+        for(Map.Entry<String, Map<String,Double>> firstLevel: res.entrySet()){
             String targetMethod = firstLevel.getKey();
-            for(Map.Entry<String,Integer> secondLevel : firstLevel.getValue().entrySet()){
+            for(Map.Entry<String,Double> secondLevel : firstLevel.getValue().entrySet()){
                 String enviedClass = secondLevel.getKey();
                 boolean shouldContinue = false;
 //                for(String od : onDemand){
@@ -104,17 +120,17 @@ public class FeatureEnvyJDeodorantRule extends AbstractJavaRule {
 //                if(!shouldContinue){
 //                    continue;
 //                }
-                Integer intensity = candidates.get(enviedClass) == null ? 0 : candidates.get(enviedClass);
+                Double intensity = candidates.get(enviedClass) == null ? 0 : candidates.get(enviedClass);
                 intensity+=secondLevel.getValue();
                 candidates.put(enviedClass,intensity);
             }
         }
-        int max = -1;
-        HashMap<String, Integer> result = new HashMap<>();
-        for(Map.Entry<String, Integer> e: candidates.entrySet()){
+        double max = -1;
+        HashMap<String, Double> result = new HashMap<>();
+        for(Map.Entry<String, Double> e: candidates.entrySet()){
             if(max<e.getValue()) max = e.getValue();
         }
-        for(Map.Entry<String, Integer> e: candidates.entrySet()){
+        for(Map.Entry<String, Double> e: candidates.entrySet()){
             if(max==e.getValue()) result.put(e.getKey(),e.getValue());
         }
         return result;

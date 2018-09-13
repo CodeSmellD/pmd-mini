@@ -8,5 +8,7 @@ Tested thru IDE Execution.
 Detailed commandline tool params could be found in PMD Official Documentation.      
 If NullPointerException related to Language.class occurred, try specify module classPath like the following screenshot.        
 
-
 ![config](https://wx2.sinaimg.cn/mw690/005yrqtrly1fuhdoe0kl0j31kw1d146v.jpg)
+
+# Example Execution Command
+-d /Users/bytenoob/Downloads/shopizer-2.2.0  -R java-exp -f csv -r /Users/bytenoob/Documents/javalibs/shopizer.csv
