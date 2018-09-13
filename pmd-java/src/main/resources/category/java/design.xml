@@ -731,6 +731,27 @@ of Object-Oriented Systems. Springer, Berlin, 1 edition, October 2006. Page 80.
         <priority>3</priority>
     </rule>
 
+    <rule name="FeatureEnvyJDeodorant"
+          language="java"
+          since="5.0"
+          message="Possible God Class (WMC={0}, ATFD={2}, TCC={1})"
+          class="net.sourceforge.pmd.lang.java.rule.design.FeatureEnvyJDeodorantRule"
+          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_java_design.html#godclass">
+        <description>
+            The God Class rule detects the God Class design flaw using metrics. God classes do too many things,
+            are very big and overly complex. They should be split apart to be more object-oriented.
+            The rule uses the detection strategy described in "Object-Oriented Metrics in Practice".
+            The violations are reported against the entire class.
+
+            See also the references:
+
+            Michele Lanza and Radu Marinescu. Object-Oriented Metrics in Practice:
+            Using Software Metrics to Characterize, Evaluate, and Improve the Design
+            of Object-Oriented Systems. Springer, Berlin, 1 edition, October 2006. Page 80.
+        </description>
+        <priority>3</priority>
+    </rule>
+
     <rule name="ImmutableField"
           since="2.0"
           message="Private field ''{0}'' could be made final; it is only initialized in the declaration or constructor."

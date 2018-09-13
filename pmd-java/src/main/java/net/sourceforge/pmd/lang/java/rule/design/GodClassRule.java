@@ -31,7 +31,7 @@ public class GodClassRule extends AbstractJavaRule {
     /**
      * Few means between 2 and 5. See: Lanza. Object-Oriented Metrics in Practice. Page 18.
      */
-    private static final int FEW_ATFD_THRESHOLD = 5;
+    private static final int FEW_ATFD_THRESHOLD = 3;
 
     /**
      * One third is a low value. See: Lanza. Object-Oriented Metrics in Practice. Page 17.

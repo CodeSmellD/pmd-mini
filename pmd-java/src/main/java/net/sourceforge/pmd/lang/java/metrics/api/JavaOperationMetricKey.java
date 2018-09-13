@@ -26,6 +26,7 @@ public enum JavaOperationMetricKey implements MetricKey<MethodLikeNode> {
      */
     ATFD(new AtfdOperationMetric()),
 
+
     /**
      * Cyclomatic complexity.
      *

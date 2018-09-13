@@ -1502,4 +1502,9 @@ public class ClassTypeResolver extends JavaParserVisitorAdapter {
         node.setType(pmdClassLoader.loadClass(className));
         importedClasses.putAll(pmdClassLoader.getImportedClasses(className));
     }
+
+    public Map<String, String> getImportedClasses() {
+        return importedClasses;
+    }
+
 }
